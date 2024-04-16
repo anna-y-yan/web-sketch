@@ -45,12 +45,30 @@
     margin-bottom: 10px;
   }
 </style>
+<script>
+  function submitVote() {
+    // Get the selected option
+    let selectedOption = document.querySelector('input[name="cheese"]:checked');
+    
+    // If an option is selected
+    if (selectedOption) {
+      let selectedValue = selectedOption.value;
+      // Here you can send the selectedValue to your server or perform any other action
+      alert("You voted for: " + selectedValue);
+    } else {
+      alert("Please select an option before voting.");
+    }
+
+    // Prevent the form from submitting normally
+    return false;
+  }
+</script>
 </head>
 <body>
 
 <div class="poll-container">
   <h2>what is your fav cheese from this list?</h2>
-  <form action="#">
+  <form onsubmit="return submitVote()">
     <div class="poll-option">
       <input type="radio" id="cheese1" name="cheese" value="brie">
       <label for="cheese1">brie</label>
